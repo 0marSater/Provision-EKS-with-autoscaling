@@ -17,8 +17,14 @@ resource "aws_route_table" "private_rt" {
   vpc_id = aws_vpc.my_vpc.id
   route {
     cidr_block     = var.private_rt_cidr
-    nat_gateway_id = aws_nat_gateway.NAT_Gateway.id
+    nat_gateway_id = aws_nat_gateway.NAT_Gateway_1.id
   }
+
+  route {
+    cidr_block     = var.private_rt_cidr
+    nat_gateway_id = aws_nat_gateway.NAT_Gateway_2.id
+  }
+
 
   tags = {
     Name = var.private_rt_name

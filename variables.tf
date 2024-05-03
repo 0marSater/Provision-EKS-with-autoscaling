@@ -116,11 +116,15 @@ variable "nat_gateway_name" {
 
 ########################### EIP name ####################################
 
-variable "eip_name" {
+variable "eip_name_1" {
   type        = string
-  description = "Name of eip"
+  description = "Name of first eip"
 }
 
+variable "eip_name_2" {
+  type        = string
+  description = "Name of second eip"
+}
 
 ########################### EKS #########################
 variable "cluster_name" {
@@ -163,7 +167,7 @@ variable "min_size" {
   description = "Minimum number of worker node "
 }
 
-variable "max_unavailable" {
-  type        = number
-  description = "Maximum unavailable number of worker node"
-}
+# variable "max_unavailable" {
+#   type        = number
+#   description = "Maximum unavailable number of worker node"
+# }

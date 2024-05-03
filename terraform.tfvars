@@ -18,7 +18,8 @@ private_rt_name       = "Private-rt"
 private_rt_cidr       = "0.0.0.0/0"
 ig_name               = "VPC-IG"
 nat_gateway_name      = "NAT-Gateway"
-eip_name              = "NAT-EIP"
+eip_name_1            = "NAT-EIP-1"
+eip_name_2            = "NAT-EIP-2"
 
 #EKS
 cluster_name    = "eks-cluster-test"

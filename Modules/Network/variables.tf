@@ -122,7 +122,12 @@ variable "nat_gateway_name" {
 
 ########################### EIP name ####################################
 
-variable "eip_name" {
+variable "eip_name_1" {
   type        = string
-  description = "Name of eip"
+  description = "Name of first eip"
+}
+
+variable "eip_name_2" {
+  type        = string
+  description = "Name of second eip"
 }

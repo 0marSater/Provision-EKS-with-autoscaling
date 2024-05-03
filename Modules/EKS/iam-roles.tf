@@ -43,18 +43,18 @@ resource "aws_iam_role" "eks_worker_node_group_role" {
     }]
     Version = "2012-10-17"
   })
-  
+
 }
 
 
 resource "aws_iam_policy" "autoscaling_policy" {
-  name   = "eks-worker-node-policy"
+  name = "eks-worker-node-policy"
   policy = jsonencode({
-    Version   = "2012-10-17",
+    Version = "2012-10-17",
     Statement = [
       {
-        Effect   = "Allow",
-        Action   = [
+        Effect = "Allow",
+        Action = [
           "autoscaling:DescribeAutoScalingGroups",
           "autoscaling:DescribeAutoScalingInstances",
           "autoscaling:DescribeLaunchConfigurations",
@@ -69,8 +69,8 @@ resource "aws_iam_policy" "autoscaling_policy" {
         Resource = "*"
       },
       {
-        Effect   = "Allow",
-        Action   = [
+        Effect = "Allow",
+        Action = [
           "autoscaling:SetDesiredCapacity",
           "autoscaling:TerminateInstanceInAutoScalingGroup"
         ],

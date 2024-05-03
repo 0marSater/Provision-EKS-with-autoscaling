@@ -19,26 +19,28 @@ module "network" {
   private_rt_cidr       = var.private_rt_cidr
   ig_name               = var.ig_name
   nat_gateway_name      = var.nat_gateway_name
-  eip_name              = var.eip_name
+  eip_name_1            = var.eip_name_1
+  eip_name_2            = var.eip_name_2
 }
 
 
 module "eks" {
-  source          = "./Modules/EKS"
-  cluster_name    = var.cluster_name
-  subnet_ids      = module.network.all_subnets_id
-  node_group_name = var.node_group_name
-  instance_types  = var.instance_types
-  disk_size       = var.disk_size
-  ami_type        = var.ami_type
-  desired_size    = var.desired_size
-  max_size        = var.max_size
-  min_size        = var.min_size
-  max_unavailable = var.max_unavailable
+  source             = "./Modules/EKS"
+  cluster_name       = var.cluster_name
+  subnet_ids         = module.network.all_subnets_id
+  private_subnet_ids = module.network.private_subnets_id
+  node_group_name    = var.node_group_name
+  instance_types     = var.instance_types
+  disk_size          = var.disk_size
+  ami_type           = var.ami_type
+  desired_size       = var.desired_size
+  max_size           = var.max_size
+  min_size           = var.min_size
+  # max_unavailable = var.max_unavailable
 
 }
 
 module "autoscaling" {
-  source          = "./Modules/autoscaling"
-  cluster_name    = var.cluster_name
+  source       = "./Modules/autoscaling"
+  cluster_name = var.cluster_name
 }

@@ -8,6 +8,11 @@ variable "subnet_ids" {
   description = "List of subnet ids"
 }
 
+variable "private_subnet_ids" {
+  type        = list(string)
+  description = "List of private subnet ids"
+}
+
 variable "node_group_name" {
   type        = string
   description = "Name of worker node group"
@@ -45,7 +50,7 @@ variable "min_size" {
   description = "Minimum number of worker node "
 }
 
-variable "max_unavailable" {
-  type        = string
-  description = "Maximum unavailable number of worker node"
-}
+# variable "max_unavailable" {
+#   type        = string
+#   description = "Maximum unavailable number of worker node"
+# }

@@ -2,7 +2,7 @@ resource "aws_eks_node_group" "worker_node" {
   cluster_name    = aws_eks_cluster.this.name
   node_group_name = var.node_group_name
   node_role_arn   = aws_iam_role.eks_worker_node_group_role.arn
-  subnet_ids      = var.subnet_ids
+  subnet_ids      = var.private_subnet_ids
 
   instance_types = var.instance_types
   disk_size      = var.disk_size
@@ -15,9 +15,9 @@ resource "aws_eks_node_group" "worker_node" {
     min_size     = var.min_size
   }
 
-  update_config {
-    max_unavailable = var.max_unavailable
-  }
+  # update_config {
+  #   max_unavailable = var.max_unavailable
+  # }
 
 
   depends_on = [
