@@ -15,7 +15,8 @@ module "network" {
   private_subnet_2_ip   = var.private_subnet_2_ip
   public_rt_name        = var.public_rt_name
   public_rt_cidr        = var.public_rt_cidr
-  private_rt_name       = var.private_rt_name
+  private_rt_1_name     = var.private_rt_1_name
+  private_rt_2_name     = var.private_rt_2_name
   private_rt_cidr       = var.private_rt_cidr
   ig_name               = var.ig_name
   nat_gateway_name      = var.nat_gateway_name
@@ -43,4 +44,5 @@ module "eks" {
 module "autoscaling" {
   source       = "./Modules/autoscaling"
   cluster_name = var.cluster_name
+  depends_on   = [module.eks]
 }

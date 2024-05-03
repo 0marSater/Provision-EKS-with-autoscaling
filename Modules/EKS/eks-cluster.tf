@@ -18,7 +18,7 @@ resource "aws_eks_cluster" "this" {
 resource "aws_eks_addon" "coredns" {
   cluster_name                = aws_eks_cluster.this.name
   addon_name                  = "coredns"
-  addon_version               = "v1.11.1-eksbuild.6"
+  # addon_version               = "v1.11.1-eksbuild.6"
   resolve_conflicts_on_create = "OVERWRITE"
 }
 

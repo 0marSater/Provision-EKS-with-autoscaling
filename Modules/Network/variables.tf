@@ -94,9 +94,14 @@ variable "private_subnet_2_ip" {
 
 
 ########################### Private Route Table #########################
-variable "private_rt_name" {
+variable "private_rt_1_name" {
   type        = string
-  description = "Private route table name"
+  description = "Private route table 1 name"
+}
+
+variable "private_rt_2_name" {
+  type        = string
+  description = "Private route table 2 name"
 }
 
 variable "private_rt_cidr" {
